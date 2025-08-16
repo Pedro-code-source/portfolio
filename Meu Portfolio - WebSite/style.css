@@ -1,52 +1,313 @@
-header{
-    position: relative;
-    padding: 10px -0;
-    background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80);
-    background-size: 600% 600%;
-    animation: gradienteAnimado 10s ease infinite;
+.body {
+    background-color: #0d0d0d; /* preto quase puro */
     color: white;
-    padding: 15px 20px;
-    border-bottom: 4px solid transparent;
-    transition: border-color 0.5s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
 }
 
-header:hover {
-    border-color: rgb(5, 22, 72);
+.social-list li a img {
+    width: 38px;
+    height: 38px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    background: transparent; /* garante que o fundo do elemento seja transparente */
 }
 
-h1 {
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    transition: color 0.3s ease;
+.social-list li a img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.3) drop-shadow(0 0 4px #4ea8de);
 }
 
-h1:hover {
-    color: rgb(5, 22, 72); /* dourado */
-}
-@keyframes gradienteAnimado {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-
-header h1{
-    text-align: center;
+/* Resetando os estilos padrões do navegador e outros */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-header div{
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+.centralizar{
+    text-align: center;
+}
+#menu ul {
+    background-color: black;
+    color: white; /* fazendo com que a cor do texto seja branca por padrão no menu (impacta o logo apenas, não os links) */
+}
+
+#menu li {
+    list-style-type: none; /* retirando o bullet da lista não ordenada */
+    padding: 1rem; /* adicionando espaçamento interno ao item para melhor visualização dele */
+}
+
+/* Configurações dos links presentes em cada opção do menu */
+.menu-links a {
+    text-decoration: none; /* removendo o underline do link */
+    color: white; /* fazendo com que a cor do texto seja branca por padrão */
+}
+
+/* Configurações da logo */
+#menu-logo {
+    font-size: 1.5rem;
+    user-select: none; /* impedir a seleção do texto */
+}
+
+/* Configurações no símbolo do menu (hamburguer) */
+#menu-toggle {
+    display: none; /* fazendo ele desaparecer por padrão */
+    cursor: pointer; /* fazendo que o mouse vire um "indicador de ação" ao colocar em cima dele */
+}
+
+/* Efeitos para que os itens do menu ganhem cor diferente ao colocar o mouse em cima */
+.menu-links:hover {
+    background-color: #4ea8de;
+}
+
+/* Cor de letra preta ao passar o mouse por cima das opções do menu */
+.menu-links:hover a {
+    color: black;
+}
+/* </> */
+
+/* Flexbox */
+
+#menu ul {
     display: flex;
-    gap: 10px;
+    align-items: center; /* centralizar os itens no eixo transversal */
 }
 
-.aboutmeimagem {
-    border-radius: 200px;
+#menu-logo {
+    flex-grow: 1; /* fazer com que o logo ocupe o espaço em branco disponível no eixo principal */
+}
+
+/* </> */
+
+/* Regras CSS para serem aplicadas apenas 
+   em telas de largura de até 600px */
+@media (max-width: 600px) {
+    /* Permite que haja "quebra de linha" */
+    #menu ul {
+        flex-wrap: wrap;
+    }
+
+    /* Fazer com que o símbolo do menu volte a aparecer */
+    #menu-toggle {
+        display: unset;
+    }
+
+    /* Fazer com que, por padrão em telas pequenas, 
+       os itens do menu não apareçam */
+    .menu-links {
+        display: none;
+        flex-basis: 100%; /* que eles tenham o tamanho de todo o eixo principal, fazendo 
+                             assim que cada um deles ocupe uma linha específica */
+        text-align: center; /* dentro de cada item flex, fazer com que seu 
+                               conteúdo textual fique centralizado */
+    }
+}
+
+/* Configurar para que os elementos voltem a aparecer caso 
+   tenham a classe CSS "show" associada */
+.show {
+    display: unset;
+}
+
+/* Fazendo com que o menu fique aparecendo mesmo ao usar a 
+   barra de rolagem vertical */
+#menu {
+    position: sticky;
+    top: 0;
 }
 
 .aboutme {
     display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    max-width: 900px;
+    margin: 30px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Animação de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideIn 1s ease-out forwards;
 }
+
+/* Keyframes para o efeito */
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aboutme:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+.aboutme-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ddd;
+    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.padrao-imagens {
+     border-radius: 50%;
+    border: 4px solid #4ea8de;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.padrao-imagens:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Rodapé ===== */
+
+footer {
+    background-color: #111;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+    position: relative; /* necessário para a linha animada */
+    overflow: hidden;
+}
+
+/* Linha animada no topo */
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #4ea8de, transparent);
+    animation: moveLine 2s linear infinite;
+}
+
+/* Animação da linha */
+@keyframes moveLine {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(50%); }
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+footer p {
+    font-size: 1.2rem;
+    color: #4ea8de;
+    margin-bottom: 15px;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.social-list li a img {
+    width: 38px;
+    height: 38px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-list li a img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.3);
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.menu-simples {
+    background-color: black;  /* fundo preto igual ao menu inicial */
+    color: white;             /* texto branco */
+    text-align: center;       /* centraliza o texto */
+    padding: 1rem 0;          /* espaço vertical */
+    position: sticky;         /* fica no topo ao rolar a página */
+    top: 0;
+    z-index: 1000;            /* garante que fique acima do conteúdo */
+    border-bottom: 2px solid #4ea8de; /* borda azul como destaque */
+}
+
+.menu-simples h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.projects-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;  /* permite quebrar linha em telas pequenas */
+    gap: 40px;        /* mais espaço entre os projetos */
+    padding: 0;
+    margin: 30px auto;
+}
+
+/* Cada cartão do projeto */
+.project-card {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(78, 168, 222, 0.5); /* sombra azul suave */
+}
+
+/* Imagem maior e circular */
+.project-card img {
+    width: 160px;        /* maior que antes */
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4ea8de;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);       /* sombra sutil */
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 10px 25px rgba(78, 168, 222, 0.7); /* sombra mais vibrante no hover */
+}
+
+/* Título do projeto */
+.project-title {
+    display: block;
+    font-size: 1.2rem;        /* mantém tamanho destacado */
+    color: #4ea8de;           /* azul do tema */
+    font-weight: 600;          /* semi-bold para destaque */
+    font-family: 'Poppins', sans-serif; /* fonte nova */
+    margin-top: 12px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Responsivo: reduz tamanho em telas pequenas */
+@media (max-width: 600px) {
+    .project-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .project-title {
+        font-size: 1rem;
+    }
+}
+

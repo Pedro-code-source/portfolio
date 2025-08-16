@@ -4,30 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfólio</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/portfolio/Meu Portfolio - WebSite/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="module" src="/portfolio/Meu Portfolio - WebSite/script.js"></script>
 </head>
 
-<body>
-    <header>
-        <h1>Meu Portfólio</h1>
+<body class="body">
+    <div id ="menu">
+        <ul>
+            <li class="centralizar" id="menu-logo">
+                <h2>Portfólio</h2>
+            </li>
+            <li id="menu-toggle"></li>
 
-        <div>
-            
-               <a class="icones" target="_blank" href="https://github.com/Pedro-code-source">
-                    <img width="38" height="38" src="/imagens/github image.png" alt="">
-               </a> 
-            
-               <a target="_blank" href="https://linkedin.com/in/pedro-pereira-586729319">
-                    <img width="38" height="38" src="/imagens/linkedin image.png" alt="">
-               </a>
+            <li class="menu-links">
+                <a href="/portfolio/Meu Portfolio - WebSite/projetos/projetos.html">Projetos</a>
+            </li>
+
+            <li class="menu-links">
+                <a href="/portfolio/Meu Portfolio - WebSite/curriculo/curriculo.html">Currículo</a>
+            </li>
                 
-        </div>    
-    </header>
+        </ul>
+    </div>
 
     <div class="aboutme">
-        <img width="350" height="350" class="aboutmeimagem" src="/imagens/foto aboutme.jpg" alt="">
-        <p>Olá 👋, me chamo Pedro e atualmente sou estudante na área de desenvolvimento de software, cursando integralmente Análise e Desenvolvimento de Sistemas pelo IFPB.</p>
+        <img class="padrao-imagens" width="350" height="350" class="aboutmeimagem" src="/portfolio/Meu Portfolio - WebSite/imagens/foto aboutme.jpg" alt="">
+        <p class="aboutme-text">Olá 👋, me chamo Pedro Pereira e sou estudante na área de desenvolvimento de software.
+Atualmente, curso integralmente Análise e Desenvolvimento de Sistemas pelo Instituto Federal da Paraíba (IFPB), onde venho me aprofundando em conceitos de programação, estrutura de dados, orientação a objetos, análise de algoritmos e desenvolvimento de aplicações.</p>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Redes sociais</h3>
+            <ul class="social-list">
+                <li>
+                    <a target="_blank" href="https://github.com/Pedro-code-source">
+                    <img width="38" height="38" src="/portfolio/Meu Portfolio - WebSite/imagens/github image.png" alt="">
+               </a>
+                </li>
+
+                <li>   
+                    <a target="_blank" href="https://linkedin.com/in/pedro-pereira-586729319">
+                    <img width="38" height="38" src="/portfolio/Meu Portfolio - WebSite/imagens/linkedin image.png" alt="">
+               </a>
+                </li>
+            </ul>
+            <p class="footer-text">&copy; 2025 Pedro Pereira — Todos os direitos reservados</p>
+        </div>
+    </footer>
+      
 </body>
 
 </html>
